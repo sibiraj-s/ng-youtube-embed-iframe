@@ -1,0 +1,60 @@
+{
+  "name": "ng-youtube-embed-iframe",
+  "version": "1.0.0",
+  "description": "The AngularJS directive for youtube-iframe-player-api",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sibiraj-S/ng-youtube-embed-iframe.git"
+  },
+  "author": "Sibiraj",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git-cz",
+    "test": "karma start --single-run"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-sanitize": "^1.6.4"
+  },
+  "bugs": {
+    "url": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe/issues"
+  },
+  "homepage": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe#readme",
+  "devDependencies": {
+    "angular-mocks": "^1.6.4",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "delete-empty": "^1.0.1",
+    "grunt": "^1.0.1",
+    "grunt-coffeelint": "^0.0.16",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-ng-annotate": "^3.0.0",
+    "jasmine-core": "^2.6.4",
+    "karma": "^1.7.0",
+    "karma-coffee-preprocessor": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.3",
+    "load-grunt-tasks": "^3.5.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "youtube",
+    "iframe-api",
+    "ng-youtube",
+    "angular-youtube-iframe",
+    "ng-youtube-embed-iframe",
+    "youtube-iframe-api",
+    "youtube-embed"
+  ]
+}

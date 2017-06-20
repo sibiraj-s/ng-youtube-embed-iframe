@@ -36,6 +36,8 @@ var app = angular.module('myApp', ['ngYoutube'])
 <youtube></youtube> // add in html
 ```
 
+also include `angular-santize`
+
 #### options
 
 options like `video-id, height, width` can be directly provided in element which is considered as main priority.

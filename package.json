@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "commit": "git-cz",
-    "test": "karma start --single-run"
+    "test": "grunt coffeelint"
   },
   "dependencies": {
     "angular": "^1.6.4",
@@ -32,12 +32,6 @@
     "grunt-contrib-uglify": "^3.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ng-annotate": "^3.0.0",
-    "jasmine-core": "^2.6.4",
-    "karma": "^1.7.0",
-    "karma-coffee-preprocessor": "^1.0.1",
-    "karma-firefox-launcher": "^1.0.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-mocha-reporter": "^2.2.3",
     "load-grunt-tasks": "^3.5.2"
   },
   "config": {

@@ -293,7 +293,7 @@ ngYoutubePlayer:onPlayerError
 
 This event is fired to indicate that the player has loaded (or unloaded) a module with exposed API methods.
 
-​```js
+```js
 ngYoutubePlayer:onApiChange
 ```
 

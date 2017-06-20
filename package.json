@@ -1,6 +1,6 @@
 {
   "name": "ng-youtube-embed-iframe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The AngularJS directive for youtube-iframe-player-api",
   "repository": {
     "type": "git",

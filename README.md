@@ -130,12 +130,6 @@ Define `ytPlayer` in your controller and assign it to $scope `$scope.ytPlayer = 
 ```js
 $scope.ytPlayer.playVideo();
 ```
-alternatively, this also can be done by
-define `youtubePlayerConfig` and assign it to $scope `$scope.youtubePlayerConfig = youtubePlayerConfig;`
-
-```js
-$scope.youtubePlayerConfig.player.playVideo();
-```
 
 ##### Playing a video
 

@@ -40,7 +40,7 @@ also include `angular-santize`
 
 #### options
 
-options like `video-id, height, width` can be directly provided in element which is considered as main priority.
+options like `video-id, height, width` can be directly provided in the element which is considered as a main priority.
 
 Other options can be provided in `player-options`
 

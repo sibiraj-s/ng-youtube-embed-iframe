@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
 
@@ -47,3 +49,5 @@ module.exports = (grunt) ->
   grunt.registerTask "webserver", ["connect"]
   grunt.registerTask "develop", ["default", "watch"]
   grunt.registerTask "dist", ["default", "ngAnnotate", "uglify"]
+
+  return;

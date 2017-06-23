@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe#readme",
   "devDependencies": {
-    "angular-mocks": "^1.6.4",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
     "delete-empty": "^1.0.1",

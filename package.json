@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "precommit": "npm test",
-    "commit": "git-cz",
+    "cz": "git-cz",
     "test": "grunt coffeelint"
   },
   "dependencies": {

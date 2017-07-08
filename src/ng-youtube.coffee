@@ -1,11 +1,3 @@
-###
-# @module ng-youtube-embed-iframe
-# @description The AngularJS directive for youtube-iframe-player-api
-# @version v1.1.2
-# @link https://github.com/Sibiraj-S/ng-youtube-embed-iframe
-# @licence MIT License, https://opensource.org/licenses/MIT
-###
-
 'use strict'
 
 $youtubePlayerConfig = ->

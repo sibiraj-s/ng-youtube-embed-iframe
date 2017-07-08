@@ -1,5 +1,12 @@
 'use strict'
 
+banner = '/*!\n * @module <%= pkg.name %>\n' +
+  ' * @description <%= pkg.description %>\n' +
+  ' * @version v<%= pkg.version %>\n' +
+  ' * @link <%= pkg.homepage %>\n' +
+  ' * @licence MIT License, https://opensource.org/licenses/MIT\n' +
+  ' */\n\n';
+
 module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
 
@@ -18,13 +25,19 @@ module.exports = (grunt) ->
         files:
           'dist/ng-youtube.js': ['src/ng-youtube.coffee']
 
-    watch:
-      files: ['src/*.coffee']
-      tasks: ['default']
+    concat:
+      options:
+        stripBanners: true
+        banner: banner
+      dist:
+        files:
+          'dist/ng-youtube.js': ['dist/ng-youtube.js']
 
     uglify:
       options:
         sourceMap: true
+        output:
+          comments: '/^!/'
       target:
         files:
           'dist/ng-youtube.min.js': ['dist/ng-youtube.js']
@@ -32,7 +45,6 @@ module.exports = (grunt) ->
     ngAnnotate:
       options:
         singleQuotes: true
-
       ngYoutube:
         files:
           'dist/ng-youtube.js': ['dist/ng-youtube.js']
@@ -43,11 +55,15 @@ module.exports = (grunt) ->
           base: './'
           keepalive: true
 
+      watch:
+        files: ['src/*.coffee']
+        tasks: ['default']
+
 
   # Grunt task(s).
   grunt.registerTask "default", ["coffeelint", "coffee"]
   grunt.registerTask "webserver", ["connect"]
   grunt.registerTask "develop", ["default", "watch"]
-  grunt.registerTask "dist", ["default", "ngAnnotate", "uglify"]
+  grunt.registerTask "dist", ["default", "ngAnnotate", "concat", "uglify"]
 
   return

@@ -73,7 +73,7 @@ Check [Youtube Iframe API Queueing functions][Queue] for more information
 ##### Array Syntax
 
 ```js
-[videoId:String, startSeconds:Number,suggestedQuality:String]
+[videoId:String, startSeconds:Number, suggestedQuality:String]
 ```
 ##### Object Syntax
 

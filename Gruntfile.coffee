@@ -53,12 +53,14 @@ module.exports = (grunt) ->
       server:
         options:
           base: './'
-          keepalive: true
+          keepalive: true,
+          livereload: true
 
-      watch:
-        files: ['src/*.coffee']
-        tasks: ['default']
-
+    watch:
+      files: ['src/*.coffee']
+      tasks: ['default']
+      options:
+        livereload: true
 
   # Grunt task(s).
   grunt.registerTask "default", ["coffeelint", "coffee"]

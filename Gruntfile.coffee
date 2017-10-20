@@ -25,6 +25,14 @@ module.exports = (grunt) ->
         files:
           'dist/ng-youtube.js': ['src/ng-youtube.coffee']
 
+    sass:
+      options:
+        sourcemap: 'none'
+        style: 'expanded'
+      docs:
+        files:
+          'docs/style.css': 'docs/style.scss'
+
     concat:
       options:
         stripBanners: true
@@ -57,13 +65,21 @@ module.exports = (grunt) ->
           livereload: true
 
     watch:
-      files: ['src/*.coffee']
-      tasks: ['default']
+      coffee:
+        files: ['src/*.coffee']
+        tasks: ['default']
+      sass:
+        files: ['docs/*.scss']
+        tasks: ['sass']
+      demoJs:
+        files: ['docs/*.js']
+      demoHtml:
+        files: ['docs/*.html']
       options:
         livereload: true
 
   # Grunt task(s).
-  grunt.registerTask "default", ["coffeelint", "coffee"]
+  grunt.registerTask "default", ["coffeelint", "coffee", "sass"]
   grunt.registerTask "webserver", ["connect"]
   grunt.registerTask "develop", ["default", "watch"]
   grunt.registerTask "dist", ["default", "ngAnnotate", "concat", "uglify"]

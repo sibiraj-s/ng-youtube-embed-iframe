@@ -25,6 +25,17 @@ bower
 ```bash
 bower install ng-youtube-embed-iframe --save
 ```
+#### CDN
+
+Minified
+```
+//unpkg.com/ng-youtube-embed-iframe@latest/dist/ng-youtube.min.js
+```
+
+Pretty Printed
+```
+//unpkg.com/ng-youtube-embed-iframe@latest/dist/ng-youtube.js
+```
 
 #### use package
 
@@ -55,19 +66,6 @@ $scope.options = {
 	width:'700px',
 	playerVars:{} // all parameters supported by youtube-iframe-api
 }
-```
-Check here for more [Youtube Iframe Api Parameters][Parameters]
-
-#### CDN
-
-Minified
-```
-//unpkg.com/ng-youtube-embed-iframe@latest/dist/ng-youtube.min.js
-```
-
-Pretty Printed
-```
-//unpkg.com/ng-youtube-embed-iframe@latest/dist/ng-youtube.js
 ```
 
 Check [wiki][wiki] for documentation

@@ -5,16 +5,19 @@ $youtubePlayerConfig = ->
   height: '100%'
   playerVars: {}
 
-$youtube = ($compile, ytPlayer, youtubePlayerConfig, $window) ->
-  restrict: 'EA'
+$youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig, $window) ->
+  restrict: 'E'
   transclude: true
-  template: '<div id="ngYoutube"></div>'
+  template: '<div id={{ngYoutubeId}}></div>'
   scope:
     height: '@'
     width: '@'
     videoId: '@'
     playerOptions: '=?'
-  link: (scope) ->
+  link: (scope, element, attrs) ->
+
+    if not attrs.id
+      throw new Error 'Provide id for element: ' + element[0].outerHTML
 
     ###
     # load the Youtube IFrame Player API code asynchronously
@@ -27,12 +30,18 @@ $youtube = ($compile, ytPlayer, youtubePlayerConfig, $window) ->
       firstScriptTag = document.getElementsByTagName('script')[0]
       firstScriptTag.parentNode.insertBefore tag, firstScriptTag
 
+    ytFactory.onReady ->
+      ytPlayer[attrs.id] = createPlayer()
+      return
+
     ###
     # check for parameters assigned to the element
     # if assigned use the parameters
     # else if use parameters are defined in options
     # else use default parameters
     ###
+
+    scope.ngYoutubeId = attrs.id
 
     scope.playerOptions = if scope.playerOptions then scope.playerOptions else {}
 
@@ -54,8 +63,8 @@ $youtube = ($compile, ytPlayer, youtubePlayerConfig, $window) ->
     # create iframe and append video url to it
     ###
 
-    $window.onYouTubeIframeAPIReady = ->
-      ytPlayer = new $window.YT.Player 'ngYoutube',
+    createPlayer = ->
+      new $window.YT.Player attrs.id,
         videoId: playerVideoId
         height: playerHeight
         width: playerWidth
@@ -67,21 +76,21 @@ $youtube = ($compile, ytPlayer, youtubePlayerConfig, $window) ->
           onError: onPlayerError
           onPlaybackRateChange: onPlaybackRateChange
           onApiChange: onApiChange
-      return
+
     ###
     # events emit by youtube iframe api
     ###
 
     onPlayerReady = (event) ->
-      scope.$emit 'ngYoutubePlayer:onPlayerReady', event
+      scope.$emit 'ngYoutubePlayer:onPlayerReady', event, attrs.id
       return
 
     onPlayerPlaybackQualityChange = (event) ->
-      scope.$emit 'ngYoutubePlayer:onPlayerPlaybackQualityChange', event
+      scope.$emit 'ngYoutubePlayer:onPlayerPlaybackQualityChange', event, attrs.id
       return
 
     onPlayerStateChange = (event) ->
-      scope.$emit 'ngYoutubePlayer:onPlayerStateChange', event
+      scope.$emit 'ngYoutubePlayer:onPlayerStateChange', event, attrs.id
 
       switch event.data
         when $window.YT.PlayerState.PLAYING
@@ -99,33 +108,76 @@ $youtube = ($compile, ytPlayer, youtubePlayerConfig, $window) ->
       return
 
     onPlayerError = (event) ->
-      scope.$emit 'ngYoutubePlayer:onPlayerError', event
+      scope.$emit 'ngYoutubePlayer:onPlayerError', event, attrs.id
       return
 
     onPlaybackRateChange = (event) ->
-      scope.$emit 'ngYoutubePlayer:onPlaybackRateChange', event
+      scope.$emit 'ngYoutubePlayer:onPlaybackRateChange', event, attrs.id
       return
 
     onApiChange = ->
-      scope.$emit 'ngYoutubePlayer:onApiChange', ytPlayer
+      scope.$emit 'ngYoutubePlayer:onApiChange', event, attrs.id
       return
 
+    # watch for changes in videoId
+    scope.$watch 'videoId', (newValue, oldValue) ->
+      if newValue is oldValue
+        return
+
+      ytPlayer[attrs.id].cueVideoById(scope.videoId)
+      return
+
+    # watch for changes in plyerOptions videoId
+    scope.$watch 'playerOptions.videoId', (newValue, oldValue) ->
+      if not scope.videoId # considering videoId as priority
+        if newValue is oldValue
+          return
+
+        ytPlayer[attrs.id].cueVideoById(scope.playerOptions.videoId)
+
+      return
+
+    # destroy elements when destroy is triggered
     scope.$on '$destroy', ->
-      $window.ytPlayer and $window.ytPlayer.destroy()
+      if $window.ytPlayer
+        $window.ytPlayer.destroy()
+
       $window.YT = undefined
+
+      for i of ytPlayer
+        if i
+          ytPlayer[i].destroy()
       return
 
     return
 
+# player service invokes when the player is ready
+$ytFactory = ($q, $window) ->
+  deferred = $q.defer()
+  apiReady = deferred.promise
+
+  $window.onYouTubeIframeAPIReady = ->
+    deferred.resolve()
+    return
+
+  onReady: (cb) ->
+    apiReady.then(cb)
+    return
+
+# player constant
+$ytPlayer = {}
+
 ###
 # dependency injection
 ###
-$youtube.$inject = ['$compile', 'ytPlayer', 'youtubePlayerConfig', '$window']
+$youtube.$inject = ['$compile', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig', '$window']
+$ytFactory.$inject = ['$q', '$window']
 
 ###
 # define angular application
 ###
-angular.module 'ngYoutube', ['ngSanitize']
+angular.module 'ngYoutube', []
   .directive('youtube', $youtube)
   .constant('youtubePlayerConfig', $youtubePlayerConfig)
-  .constant 'ytPlayer'
+  .factory('ytFactory', $ytFactory)
+  .constant('ytPlayer', $ytPlayer)

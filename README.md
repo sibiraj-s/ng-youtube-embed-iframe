@@ -33,10 +33,8 @@ bower install ng-youtube-embed-iframe --save
 
 var app = angular.module('myApp', ['ngYoutube'])
 
-<youtube></youtube> // add in html
+<youtube id="myYoutubePlayer"></youtube> // add in html
 ```
-
-also include `angular-santize`
 
 #### options
 
@@ -46,7 +44,7 @@ Other options can be provided in `player-options`
 
 In HTML
 ```html
-<youtube player-options="options"></youtube>
+<youtube player-options="options" id="myYoutubePlayer"></youtube>
 ```
 
 In Controller
@@ -123,12 +121,27 @@ loadVideo(function name , array | object)
 
 ### Playback controls and player settings
 
-Define `ytPlayer` in your controller and assign it to $scope `$scope.ytPlayer = ytPlayer;`
+Define `ytPlayer` in your controller and assign it to $scope variable `$scope.ytPlayer = ytPlayer;`
+
+Can be used once the player is ready
+
+```
+app.controller('youtubeCtrl', ['$scope', 'ytPlayer',
+function ($scope, ytPlayer) {
+
+    $scope.ytPlayer;
+
+    $scope.$on('ngYoutubePlayer:onPlayerReady', function(event, data, id) {
+        $scope.ytPlayer = ytPlayer;
+    });
+
+}]);
+```
 
 #### Usage
 
 ```js
-$scope.ytPlayer.playVideo();
+$scope.ytPlayer['myYoutubePlayer'].playVideo();
 ```
 
 ##### Playing a video
@@ -237,7 +250,7 @@ This event fires whenever a player has finished loading and is ready to begin re
 ngYoutubePlayer:onPlayerReady
 
 // sample
-$scope.$on('ngYoutubePlayer:onPlayerReady', function() {
+$scope.$on('ngYoutubePlayer:onPlayerReady', function(event, player, id) {
     console.log('player ready');
 });
 ```

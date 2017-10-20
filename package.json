@@ -1,6 +1,6 @@
 {
   "name": "ng-youtube-embed-iframe",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "The AngularJS directive for youtube-iframe-player-api",
   "repository": {
     "type": "git",
@@ -9,13 +9,13 @@
   "author": "Sibiraj",
   "license": "MIT",
   "scripts": {
-    "precommit": "npm test",
+    "precommit": "yarn test && grunt dist",
     "cz": "git-cz",
     "test": "grunt coffeelint"
   },
   "dependencies": {
-    "angular": ">=1.6.0",
-    "angular-sanitize": ">=1.6.0"
+    "angular": ">=1.6.6",
+    "angular-sanitize": ">=1.6.6"
   },
   "bugs": {
     "url": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe/issues"
@@ -30,7 +30,7 @@
     "grunt-contrib-coffee": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-uglify": "^3.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ng-annotate": "^3.0.0",
     "husky": "^0.14.3",

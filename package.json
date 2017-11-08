@@ -9,6 +9,10 @@
   "author": "Sibiraj",
   "license": "MIT",
   "scripts": {
+    "start": "grunt webserver",
+    "develop": "grunt develop",
+    "watch": "grunt watch",
+    "build": "grunt dist",
     "precommit": "yarn test && grunt dist",
     "cz": "git-cz",
     "test": "grunt coffeelint"

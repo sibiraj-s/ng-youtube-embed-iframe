@@ -61,6 +61,7 @@ module.exports = (grunt) ->
       server:
         options:
           base: './'
+          hostname: 'localhost'
           keepalive: true,
           livereload: true
 

@@ -1,7 +1,7 @@
 /*!
  * @module ng-youtube-embed-iframe
  * @description The AngularJS directive for youtube-iframe-player-api
- * @version v1.2.0
+ * @version v1.2.1
  * @link https://github.com/Sibiraj-S/ng-youtube-embed-iframe#readme
  * @licence MIT License, https://opensource.org/licenses/MIT
  */
@@ -18,7 +18,7 @@
     };
   };
 
-  $youtube = function($compile, ytFactory, ytPlayer, youtubePlayerConfig, $window) {
+  $youtube = function($compile, ytFactory, ytPlayer, youtubePlayerConfig) {
     return {
       restrict: 'E',
       transclude: true,
@@ -34,12 +34,11 @@
         if (!attrs.id) {
           throw new Error('Provide id for element: ' + element[0].outerHTML);
         }
-
         /*
          * load the Youtube IFrame Player API code asynchronously
          * load page only once
          */
-        if (typeof $window.YT === 'undefined' || typeof $window.YT.Player === 'undefined') {
+        if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
           tag = document.createElement('script');
           tag.src = 'https://www.youtube.com/iframe_api';
           firstScriptTag = document.getElementsByTagName('script')[0];
@@ -48,7 +47,6 @@
         ytFactory.onReady(function() {
           ytPlayer[attrs.id] = createPlayer();
         });
-
         /*
          * check for parameters assigned to the element
          * if assigned use the parameters
@@ -61,12 +59,9 @@
         playerHeight = scope.height ? scope.height : (tempHeight = scope.playerOptions.height ? scope.playerOptions.height : youtubePlayerConfig.height);
         playerWidth = scope.width ? scope.width : (tempWidth = scope.playerOptions.width ? scope.playerOptions.width : youtubePlayerConfig.width);
         playerVars = scope.playerOptions.playerVars ? scope.playerOptions.playerVars : youtubePlayerConfig.playerVars;
-
-        /*
-         * create iframe and append video url to it
-         */
+        // create iframe and append video url to it
         createPlayer = function() {
-          return new $window.YT.Player(attrs.id, {
+          return new YT.Player(attrs.id, {
             videoId: playerVideoId,
             height: playerHeight,
             width: playerWidth,
@@ -81,10 +76,7 @@
             }
           });
         };
-
-        /*
-         * events emit by youtube iframe api
-         */
+        // events emit by youtube iframe api
         onPlayerReady = function(event) {
           scope.$emit('ngYoutubePlayer:onPlayerReady', event, attrs.id);
         };
@@ -94,22 +86,22 @@
         onPlayerStateChange = function(event) {
           scope.$emit('ngYoutubePlayer:onPlayerStateChange', event, attrs.id);
           switch (event.data) {
-            case $window.YT.PlayerState.PLAYING:
+            case YT.PlayerState.PLAYING:
               scope.$emit('ngYoutubePlayer:PLAYING', event);
               break;
-            case $window.YT.PlayerState.ENDED:
+            case YT.PlayerState.ENDED:
               scope.$emit('ngYoutubePlayer:ENDED', event);
               break;
-            case $window.YT.PlayerState.UNSTARTED:
+            case YT.PlayerState.UNSTARTED:
               scope.$emit('ngYoutubePlayer:UNSTARTED', event);
               break;
-            case $window.YT.PlayerState.PAUSED:
+            case YT.PlayerState.PAUSED:
               scope.$emit('ngYoutubePlayer:PAUSED', event);
               break;
-            case $window.YT.PlayerState.BUFFERING:
+            case YT.PlayerState.BUFFERING:
               scope.$emit('ngYoutubePlayer:BUFFERING', event);
               break;
-            case $window.YT.PlayerState.CUED:
+            case YT.PlayerState.CUED:
               scope.$emit('ngYoutubePlayer:CUED', event);
           }
         };
@@ -122,28 +114,28 @@
         onApiChange = function() {
           scope.$emit('ngYoutubePlayer:onApiChange', event, attrs.id);
         };
+        // watch for changes in videoId
         scope.$watch('videoId', function(newValue, oldValue) {
           if (newValue === oldValue) {
             return;
           }
           ytPlayer[attrs.id].cueVideoById(scope.videoId);
         });
+        // watch for changes in plyerOptions videoId
         scope.$watch('playerOptions.videoId', function(newValue, oldValue) {
-          if (!scope.videoId) {
+          if (!scope.videoId) { // considering videoId as priority
             if (newValue === oldValue) {
               return;
             }
             ytPlayer[attrs.id].cueVideoById(scope.playerOptions.videoId);
           }
         });
+        // destroy elements when destroy is triggered
         scope.$on('$destroy', function() {
-          var i;
-          if ($window.ytPlayer) {
-            $window.ytPlayer.destroy();
-          }
-          $window.YT = void 0;
+          var YT, i;
+          YT = void 0;
           for (i in ytPlayer) {
-            if (i) {
+            if (i && ytPlayer[i].a) {
               ytPlayer[i].destroy();
             }
           }
@@ -152,6 +144,7 @@
     };
   };
 
+  // player service invokes when the player is ready
   $ytFactory = function($q, $window) {
     var apiReady, deferred;
     deferred = $q.defer();
@@ -166,22 +159,19 @@
     };
   };
 
+  // player constant
   $ytPlayer = {};
-
 
   /*
    * dependency injection
    */
-
-  $youtube.$inject = ['$compile', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig', '$window'];
+  $youtube.$inject = ['$compile', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig'];
 
   $ytFactory.$inject = ['$q', '$window'];
-
 
   /*
    * define angular application
    */
-
   angular.module('ngYoutube', []).directive('youtube', $youtube).constant('youtubePlayerConfig', $youtubePlayerConfig).factory('ytFactory', $ytFactory).constant('ytPlayer', $ytPlayer);
 
 }).call(this);

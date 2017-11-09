@@ -5,7 +5,7 @@ $youtubePlayerConfig = ->
   height: '100%'
   playerVars: {}
 
-$youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig, $window) ->
+$youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig) ->
   restrict: 'E'
   transclude: true
   template: '<div id={{ngYoutubeId}}></div>'
@@ -24,7 +24,7 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig, $window) ->
     # load page only once
     ###
 
-    if typeof $window.YT is 'undefined' or typeof $window.YT.Player is 'undefined'
+    if typeof YT is 'undefined' or typeof YT.Player is 'undefined'
       tag = document.createElement('script')
       tag.src = 'https://www.youtube.com/iframe_api'
       firstScriptTag = document.getElementsByTagName('script')[0]
@@ -59,12 +59,10 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig, $window) ->
     playerVars = if scope.playerOptions.playerVars then scope.playerOptions.playerVars else
       youtubePlayerConfig.playerVars
 
-    ###
     # create iframe and append video url to it
-    ###
 
     createPlayer = ->
-      new $window.YT.Player attrs.id,
+      new YT.Player attrs.id,
         videoId: playerVideoId
         height: playerHeight
         width: playerWidth
@@ -77,9 +75,7 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig, $window) ->
           onPlaybackRateChange: onPlaybackRateChange
           onApiChange: onApiChange
 
-    ###
     # events emit by youtube iframe api
-    ###
 
     onPlayerReady = (event) ->
       scope.$emit 'ngYoutubePlayer:onPlayerReady', event, attrs.id
@@ -93,17 +89,17 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig, $window) ->
       scope.$emit 'ngYoutubePlayer:onPlayerStateChange', event, attrs.id
 
       switch event.data
-        when $window.YT.PlayerState.PLAYING
+        when YT.PlayerState.PLAYING
           scope.$emit 'ngYoutubePlayer:PLAYING', event
-        when $window.YT.PlayerState.ENDED
+        when YT.PlayerState.ENDED
           scope.$emit 'ngYoutubePlayer:ENDED', event
-        when $window.YT.PlayerState.UNSTARTED
+        when YT.PlayerState.UNSTARTED
           scope.$emit 'ngYoutubePlayer:UNSTARTED', event
-        when $window.YT.PlayerState.PAUSED
+        when YT.PlayerState.PAUSED
           scope.$emit 'ngYoutubePlayer:PAUSED', event
-        when $window.YT.PlayerState.BUFFERING
+        when YT.PlayerState.BUFFERING
           scope.$emit 'ngYoutubePlayer:BUFFERING', event
-        when $window.YT.PlayerState.CUED
+        when YT.PlayerState.CUED
           scope.$emit 'ngYoutubePlayer:CUED', event
       return
 
@@ -139,13 +135,10 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig, $window) ->
 
     # destroy elements when destroy is triggered
     scope.$on '$destroy', ->
-      if $window.ytPlayer
-        $window.ytPlayer.destroy()
-
-      $window.YT = undefined
+      YT = undefined
 
       for i of ytPlayer
-        if i
+        if i && ytPlayer[i].a
           ytPlayer[i].destroy()
       return
 
@@ -170,7 +163,7 @@ $ytPlayer = {}
 ###
 # dependency injection
 ###
-$youtube.$inject = ['$compile', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig', '$window']
+$youtube.$inject = ['$compile', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig']
 $ytFactory.$inject = ['$q', '$window']
 
 ###

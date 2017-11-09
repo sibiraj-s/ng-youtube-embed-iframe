@@ -19,4 +19,5 @@ app.controller('mainCtrl', ['$scope', 'ytPlayer',
             }
         });
 
-    }]);
+    }
+]);

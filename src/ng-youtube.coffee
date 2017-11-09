@@ -138,7 +138,7 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig) ->
       YT = undefined
 
       for i of ytPlayer
-        if i && ytPlayer[i].a
+        if i and ytPlayer[i].a
           ytPlayer[i].destroy()
       return
 

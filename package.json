@@ -14,7 +14,6 @@
     "watch": "grunt watch",
     "build": "grunt dist",
     "precommit": "yarn test",
-    "prepublish": "yarn run build",
     "cz": "git-cz",
     "test": "grunt coffeelint"
   },

@@ -20,8 +20,8 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "src",
+    ".vs-code"
   ],
   "dependencies": {
     "angular": ">=1.6.0",

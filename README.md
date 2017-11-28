@@ -20,27 +20,22 @@ yarn
 yarn add ng-youtube-embed-iframe
 ```
 
-bower
-
-```bash
-bower install ng-youtube-embed-iframe --save
-```
 #### CDN
 
 Minified
 ```
-//unpkg.com/ng-youtube-embed-iframe@latest/dist/ng-youtube.min.js
+//unpkg.com/ng-youtube-embed-iframe@latest/ng-youtube.min.js
 ```
 
 Pretty Printed
 ```
-//unpkg.com/ng-youtube-embed-iframe@latest/dist/ng-youtube.js
+//unpkg.com/ng-youtube-embed-iframe@latest/ng-youtube.js
 ```
 
 #### use package
 
 ```js
-<script src="ng-youtube-embed-iframe/dist/ng-youtube.min.js"></script>
+<script src="../ng-youtube.min.js"></script>
 
 var app = angular.module('myApp', ['ngYoutube'])
 

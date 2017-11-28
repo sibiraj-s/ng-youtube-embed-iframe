@@ -9,15 +9,20 @@
   "author": "Sibiraj",
   "license": "MIT",
   "scripts": {
-    "start": "grunt webserver",
-    "develop": "grunt develop",
-    "watch": "grunt watch",
-    "build": "grunt dist",
-    "precommit": "yarn test",
+    "build": "grunt build",
     "cz": "git-cz",
-    "test": "grunt coffeelint"
+    "develop": "grunt develop",
+    "lint": "grunt coffeelint",
+    "postbuild": "sh ./scripts/postbuild.sh",
+    "prebuild": "sh ./scripts/prebuild.sh",
+    "precommit": "yarn run lint",
+    "prerelease": "yarn run build",
+    "release": "sh ./scripts/release.sh",
+    "start": "grunt serve",
+    "test": "yarn run lint",
+    "watch": "grunt watch"
   },
-  "dependencies": {
+  "peerDependencies": {
     "angular": ">=1.6.6",
     "angular-sanitize": ">=1.6.6"
   },
@@ -26,6 +31,8 @@
   },
   "homepage": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe#readme",
   "devDependencies": {
+    "angular": "^1.6.7",
+    "angular-sanitize": "^1.6.7",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
     "delete-empty": "^1.0.1",

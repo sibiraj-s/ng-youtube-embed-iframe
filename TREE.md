@@ -1,14 +1,13 @@
 ```
 .
-├── dist
-│   ├── ng-youtube.js
-│   ├── ng-youtube.min.js
-│   └── ng-youtube.min.js.map
+├── scripts
+│   ├── postbuild.sh
+│   ├── prebuild.sh
+│   └── release.sh
 ├── src
 │   └── ng-youtube.coffee
 ├── .vscode
 │   └── settings.json
-├── bower.json
 ├── coffeelint.json
 ├── .gitignore
 ├── Gruntfile.coffee

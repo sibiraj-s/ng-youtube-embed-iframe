@@ -83,6 +83,6 @@ module.exports = (grunt) ->
   grunt.registerTask "default", ["coffeelint", "coffee", "sass"]
   grunt.registerTask "webserver", ["connect"]
   grunt.registerTask "develop", ["default", "watch"]
-  grunt.registerTask "dist", ["default", "ngAnnotate", "concat", "uglify"]
+  grunt.registerTask "build", ["default", "ngAnnotate", "concat", "uglify"]
 
   return

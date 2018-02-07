@@ -1,4 +1,5 @@
-# ng-youtube-embed-iframe [![Build Status](https://travis-ci.org/Sibiraj-S/ng-youtube-embed-iframe.svg?branch=master)](https://travis-ci.org/Sibiraj-S/ng-youtube-embed-iframe)
+# ng-youtube-embed-iframe [![Build Status](https://travis-ci.org/Sibiraj-S/ng-youtube-embed-iframe.svg?branch=master)](https://travis-ci.org/Sibiraj-S/ng-youtube-embed-iframe) [![Maintenance](https://img.shields.io/badge/maintained%20%3F-no-red.svg)](https://github.com/Sibiraj-S/ng-youtube-embed-iframe)
+
 The ng-youtube-embed-iframe lets you embed a YouTube video player on your website and control the player using AngularJs.
 
 Using the ng-youtube-embed-iframe functions, you can queue videos for playback; play, pause, or stop those videos, adjust the player volume, or retrieve information about the video being played. You can also add event listeners that will execute in response to certain player events, such as a player state change or a video playback quality change.

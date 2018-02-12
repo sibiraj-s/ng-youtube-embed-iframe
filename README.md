@@ -1,5 +1,11 @@
 # ng-youtube-embed-iframe [![Build Status](https://travis-ci.org/Sibiraj-S/ng-youtube-embed-iframe.svg?branch=master)](https://travis-ci.org/Sibiraj-S/ng-youtube-embed-iframe) [![Maintenance](https://img.shields.io/badge/maintained%20%3F-no-red.svg)](https://github.com/Sibiraj-S/ng-youtube-embed-iframe)
 
+<p align="center">
+  <a href="https://github.com/Sibiraj-S/ngx-editor">
+   <img src="https://raw.githubusercontent.com/Sibiraj-S/ng-youtube-embed-iframe/master/assets/images/youtube.png" alt="ng-youtube-embed-iframe" height="180">
+  </a>
+</p>
+
 The ng-youtube-embed-iframe lets you embed a YouTube video player on your website and control the player using AngularJs.
 
 Using the ng-youtube-embed-iframe functions, you can queue videos for playback; play, pause, or stop those videos, adjust the player volume, or retrieve information about the video being played. You can also add event listeners that will execute in response to certain player events, such as a player state change or a video playback quality change.
@@ -8,7 +14,8 @@ The AngularJS directive for [Youtube Iframe API][ApiReference]. All functions su
 
 ## Getting started
 
-#### Install Package
+### Install Package
+
 npm
 
 ```bash
@@ -24,16 +31,18 @@ yarn add ng-youtube-embed-iframe
 #### CDN
 
 Minified
-```
+
+```bash
 //unpkg.com/ng-youtube-embed-iframe@latest/ng-youtube.min.js
 ```
 
 Pretty Printed
-```
+
+```bash
 //unpkg.com/ng-youtube-embed-iframe@latest/ng-youtube.js
 ```
 
-#### use package
+### Usage
 
 ```js
 <script src="../ng-youtube.min.js"></script>
@@ -50,17 +59,19 @@ options like `video-id, height, width` can be directly provided in the element w
 Other options can be provided in `player-options`
 
 In HTML
+
 ```html
 <youtube player-options="options" id="myYoutubePlayer"></youtube>
 ```
 
 In Controller
+
 ```js
 $scope.options = {
-	videoId:'',
-	height:'100%',
-	width:'700px',
-	playerVars:{} // all parameters supported by youtube-iframe-api
+    videoId:'',
+    height:'100%',
+    width:'700px',
+    playerVars:{} // all parameters supported by youtube-iframe-api
 }
 ```
 

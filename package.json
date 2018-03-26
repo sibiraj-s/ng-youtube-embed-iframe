@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/Sibiraj-S/ng-youtube-embed-iframe.git"
   },
+  "main": "",
   "author": "Sibiraj",
   "license": "MIT",
   "scripts": {
@@ -49,9 +50,6 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
-  },
-  "directories": {
-    "test": "test"
   },
   "keywords": [
     "youtube",

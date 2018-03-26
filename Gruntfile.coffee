@@ -16,7 +16,7 @@ module.exports = (grunt) ->
     coffeelint:
       options:
         configFile: 'coffeelint.json'
-      source: ['src/ng-youtube.coffee']
+      source: ['src/ng-youtube.coffee', 'Gruntfile.coffee']
 
     coffee:
       coffee2Js:

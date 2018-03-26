@@ -19,7 +19,7 @@ module.exports = (grunt) ->
       source: ['src/ng-youtube.coffee']
 
     coffee:
-      compileJoined:
+      coffee2Js:
         options:
           join: true
         files:
@@ -29,7 +29,7 @@ module.exports = (grunt) ->
       options:
         sourcemap: 'none'
         style: 'expanded'
-      docs:
+      scss2css:
         files:
           'docs/style.css': 'docs/style.scss'
 
@@ -37,7 +37,7 @@ module.exports = (grunt) ->
       options:
         stripBanners: true
         banner: banner
-      dist:
+      jsConcat:
         files:
           'dist/ng-youtube.js': ['dist/ng-youtube.js']
 
@@ -46,14 +46,14 @@ module.exports = (grunt) ->
         sourceMap: true
         output:
           comments: '/^!/'
-      target:
+      minifyJs:
         files:
           'dist/ng-youtube.min.js': ['dist/ng-youtube.js']
 
     ngAnnotate:
       options:
         singleQuotes: true
-      ngYoutube:
+      annotateJS:
         files:
           'dist/ng-youtube.js': ['dist/ng-youtube.js']
 
@@ -62,22 +62,29 @@ module.exports = (grunt) ->
         options:
           base: './'
           hostname: 'localhost'
+          open: true
           keepalive: true,
           livereload: true
 
     watch:
       coffee:
         files: ['src/*.coffee']
-        tasks: ['default']
+        tasks: ['coffee']
+      js:
+        files: ['docs/*.js', 'dist/*.js']
+        options:
+          livereload: true
       sass:
         files: ['docs/*.scss']
         tasks: ['sass']
-      demoJs:
-        files: ['docs/*.js']
-      demoHtml:
+      css:
+        files: ['docs/*.css'],
+        options:
+          livereload: true
+      html:
         files: ['docs/*.html']
-      options:
-        livereload: true
+        options:
+          livereload: true
 
   # Grunt task(s).
   grunt.registerTask "default", ["coffeelint", "coffee", "sass"]

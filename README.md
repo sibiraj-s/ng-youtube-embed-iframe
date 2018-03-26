@@ -1,16 +1,16 @@
 # ng-youtube-embed-iframe [![Build Status](https://travis-ci.org/Sibiraj-S/ng-youtube-embed-iframe.svg?branch=master)](https://travis-ci.org/Sibiraj-S/ng-youtube-embed-iframe) [![Maintenance](https://img.shields.io/badge/maintained%20%3F-no-red.svg)](https://github.com/Sibiraj-S/ng-youtube-embed-iframe)
 
 <p align="center">
-  <a href="https://github.com/Sibiraj-S/ngx-editor">
+  <a href="https://github.com/Sibiraj-S/ng-youtube-embed-iframe">
    <img src="https://raw.githubusercontent.com/Sibiraj-S/ng-youtube-embed-iframe/master/assets/images/youtube.png" alt="ng-youtube-embed-iframe" height="180">
   </a>
 </p>
 
-The ng-youtube-embed-iframe lets you embed a YouTube video player on your website and control the player using AngularJs.
+ng-youtube-embed-iframe lets you embed a YouTube video player on your website and control the player using AngularJs.
 
-Using the ng-youtube-embed-iframe functions, you can queue videos for playback; play, pause, or stop those videos, adjust the player volume, or retrieve information about the video being played. You can also add event listeners that will execute in response to certain player events, such as a player state change or a video playback quality change.
+Using ng-youtube-embed-iframe functions, you can queue videos for playback; play, pause, or stop those videos, adjust the player volume, or retrieve information about the video being played. You can also add event listeners that will execute in response to certain player events, such as a player state change or a video playback quality change.
 
-The AngularJS directive for [Youtube Iframe API][ApiReference]. All functions supported by Youtube Iframe API is supported.
+An AngularJS directive for [Youtube Iframe API][ApiReference]. All functions supported by Youtube Iframe API is supported.
 
 ## Getting started
 
@@ -54,7 +54,7 @@ var app = angular.module('myApp', ['ngYoutube'])
 
 #### options
 
-options like `video-id, height, width` can be directly provided in the element which is considered as a main priority.
+Options like `video-id, height, width` can be directly provided in the element which is considered as the main priority.
 
 Other options can be provided in `player-options`
 

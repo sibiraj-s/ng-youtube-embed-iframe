@@ -31,11 +31,8 @@
   },
   "homepage": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe#readme",
   "devDependencies": {
-    "angular": "^1.6.7",
-    "angular-sanitize": "^1.6.7",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
-    "delete-empty": "^1.0.1",
     "grunt": "^1.0.1",
     "grunt-coffeelint": "^0.0.16",
     "grunt-contrib-coffee": "^2.0.0",

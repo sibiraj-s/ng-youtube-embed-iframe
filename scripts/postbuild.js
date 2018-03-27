@@ -11,6 +11,7 @@ fs.readFile('dist/package.json', 'utf8', function (err, data) {
     const pkg = JSON.parse(data);
     pkg['main'] = 'ng-youtube.min.js';
     delete pkg['scripts'];
+    delete pkg['devDependencies'];
 
     fs.writeFile('dist/package.json', JSON.stringify((pkg), null, 2), 'utf8', function (err) {
         if (err) throw err;

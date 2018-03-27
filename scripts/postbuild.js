@@ -1,6 +1,6 @@
 /**
  * reads package.json file
- * add main field and remove scripts filed
+ * add main field and remove few unwanted fields
  */
 const fs = require('fs');
 

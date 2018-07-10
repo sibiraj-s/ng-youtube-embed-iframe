@@ -1,11 +1,7 @@
 {
   "name": "ng-youtube-embed-iframe",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "AngularJS directive for youtube-iframe-player-api",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sibiraj-S/ng-youtube-embed-iframe.git"
-  },
   "author": "Sibiraj",
   "license": "MIT",
   "scripts": {
@@ -15,42 +11,12 @@
     "lint": "grunt coffeelint",
     "postbuild": "sh ./scripts/postbuild.sh",
     "prebuild": "sh ./scripts/prebuild.sh",
-    "precommit": "yarn run lint",
-    "prerelease": "yarn run build",
+    "precommit": "npm run lint",
+    "prerelease": "npm run build",
     "release": "sh ./scripts/release.sh",
     "start": "grunt serve",
-    "test": "yarn run lint",
+    "test": "npm run lint",
     "watch": "grunt watch"
-  },
-  "peerDependencies": {
-    "angular": ">=1.6.6",
-    "angular-sanitize": ">=1.6.6"
-  },
-  "bugs": {
-    "url": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe/issues"
-  },
-  "homepage": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe#readme",
-  "devDependencies": {
-    "angular": "^1.6.9",
-    "angular-sanitize": "^1.6.9",
-    "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.1.0",
-    "grunt": "^1.0.2",
-    "grunt-coffeelint": "^0.0.16",
-    "grunt-contrib-coffee": "^2.0.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^3.3.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-ng-annotate": "^3.0.0",
-    "husky": "^0.14.3",
-    "load-grunt-tasks": "^3.5.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
   },
   "keywords": [
     "youtube",
@@ -60,5 +26,39 @@
     "ng-youtube-embed-iframe",
     "youtube-iframe-api",
     "youtube-embed"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sibiraj-S/ng-youtube-embed-iframe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe/issues"
+  },
+  "homepage": "https://github.com/Sibiraj-S/ng-youtube-embed-iframe#readme",
+  "peerDependencies": {
+    "angular": ">=1.6.6",
+    "angular-sanitize": ">=1.6.6"
+  },
+  "devDependencies": {
+    "angular": "^1.6.10",
+    "angular-sanitize": "^1.6.10",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "grunt": "^1.0.2",
+    "grunt-coffeelint": "^0.0.16",
+    "grunt-contrib-coffee": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.0.1",
+    "grunt-ng-annotate": "^3.0.0",
+    "husky": "^0.14.3",
+    "load-grunt-tasks": "^4.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
 }

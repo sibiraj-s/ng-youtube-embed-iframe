@@ -4,9 +4,9 @@
   "description": "AngularJS directive for youtube-iframe-player-api",
   "author": "Sibiraj",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "build": "grunt build",
-    "cz": "git-cz",
     "develop": "grunt develop",
     "lint": "grunt lint",
     "postbuild": "sh ./scripts/postbuild.sh",

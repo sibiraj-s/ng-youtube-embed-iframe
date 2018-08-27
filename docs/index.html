@@ -2,41 +2,42 @@
 <html lang="en" ng-app="myApp" ng-strict-di>
 
 <head>
-    <base href="ng-youtube-embed-iframe">
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ng-youtube-embed-iframe</title>
-    <link rel="stylesheet" href="//unpkg.com/bootstrap@4.1.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
+  <base href="ng-youtube-embed-iframe">
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ng-youtube-embed-iframe</title>
+  <link rel="stylesheet" href="//unpkg.com/bootstrap@4.1.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body ng-controller="mainCtrl">
-    <div class="player">
-        <youtube video-id={{videoId}} id="player1" height="400" width="700"></youtube>
-        <br>
-        <br>
-        <button class="btn btn-sm btn-success" ng-click="ytPlayer['player1'].playVideo()" ng-disabled="!playerReady">Play</button>
-        <button class="btn btn-sm btn-warning" ng-click="ytPlayer['player1'].pauseVideo()" ng-disabled="!playerReady">Pause</button>
-        <button class="btn btn-sm btn-danger" ng-click="ytPlayer['player1'].stopVideo()" ng-disabled="!playerReady">Stop</button>
-        <button class="btn btn-sm btn-info" ng-click="ytPlayer['player1'].seekTo(30, true)" ng-disabled="!playerReady">Seek To 30 Seconds</button>
-        <br>
-        <br>
-        <div class="videoId">
-            <form class="form-inline justify-content-center">
-                <div class="form-group">
-                    <label>Video Id: </label>
-                    <input type="text" class="form-control ml-2" ng-model="videoId">
-                </div>
-            </form>
+  <div class="player">
+    <youtube video-id={{videoId}} id="player1" height="400" width="700"></youtube>
+    <br>
+    <br>
+    <button class="btn btn-sm btn-success" ng-click="ytPlayer['player1'].playVideo()" ng-disabled="!playerReady">Play</button>
+    <button class="btn btn-sm btn-warning" ng-click="ytPlayer['player1'].pauseVideo()" ng-disabled="!playerReady">Pause</button>
+    <button class="btn btn-sm btn-danger" ng-click="ytPlayer['player1'].stopVideo()" ng-disabled="!playerReady">Stop</button>
+    <button class="btn btn-sm btn-info" ng-click="ytPlayer['player1'].seekTo(30, true)" ng-disabled="!playerReady">Seek To
+      30 Seconds</button>
+    <br>
+    <br>
+    <div class="videoId">
+      <form class="form-inline justify-content-center">
+        <div class="form-group">
+          <label>Video Id: </label>
+          <input type="text" class="form-control ml-2" ng-model="videoId">
         </div>
+      </form>
     </div>
+  </div>
 
-    <!--scripts-->
-    <script src="//unpkg.com/angular@1.7.2/angular.min.js"></script>
-    <script src="//unpkg.com/ng-youtube-embed-iframe@latest/ng-youtube.min.js"></script>
-    <script src="./script.js"></script>
+  <!--scripts-->
+  <script src="//unpkg.com/angular@1.7.2/angular.min.js"></script>
+  <script src="//unpkg.com/ng-youtube-embed-iframe@latest/ng-youtube.min.js"></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>

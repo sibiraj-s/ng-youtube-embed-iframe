@@ -4,7 +4,7 @@ var app = angular.module('myApp', ['ngYoutube']);
 
 app.controller('mainCtrl', ['$scope', 'ytPlayer', function ($scope, ytPlayer) {
   $scope.playerReady = false;
-  $scope.ytPlayer;
+  $scope.ytPlayer = undefined;
 
   $scope.videoId = 'iGk5fR-t5AU';
 

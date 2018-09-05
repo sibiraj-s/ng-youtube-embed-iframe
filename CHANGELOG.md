@@ -15,7 +15,9 @@ All notable changes to this project will be documented in this file.
 
 #### Dependency Updates
 
-* update devDependencies ([242acac](https://github.com/Sibiraj-S/ng-youtube-embed-iframe/commit/242acac))
+* update eslint to v5.5.0 ([588f132](https://github.com/Sibiraj-S/ng-youtube-embed-iframe/commit/588f132))
+* update grunt-contrib-ugligy to v4.0.0 ([588f132](https://github.com/Sibiraj-S/ng-youtube-embed-iframe/commit/588f132))
+* update grunt-coffeelitr to v1.1.1 ([242acac](https://github.com/Sibiraj-S/ng-youtube-embed-iframe/commit/242acac))
 
 #### Internal
 

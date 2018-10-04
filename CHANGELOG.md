@@ -11,18 +11,23 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
-## Unreleased
+## v1.2.9 (2018-10-05)
 
 #### Dependency Updates
 
-* update eslint to v5.5.0 ([588f132](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/588f132))
 * update grunt-contrib-ugligy to v4.0.0 ([588f132](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/588f132))
 * update grunt-coffeelitr to v1.1.1 ([242acac](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/242acac))
+* update eslint to v5.6.1 ([01107e4](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/01107e4))
+* update husky to v1.1.0 ([01107e4](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/01107e4))
+* update grunt-contrib-connect to v2.0.0 ([01107e4](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/01107e4))
+* update eslint-plugin-promise to v4.0.1 ([01107e4](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/01107e4))
 
 #### Internal
 
 * apply standardjs rules to eslint ([16c20af](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/16c20af))
 * use two space identation instead of four for all files ([96a1669](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/96a1669))
+* remove vscode settings in favour of editorconfig ([543b048](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/543b048))
+* update github username ([bf0f645](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/bf0f645))
 
 ## v1.2.8 (2018-07-27)
 

@@ -1,8 +1,8 @@
-# ng-youtube-embed-iframe [![Build Status](https://travis-ci.com/Sibiraj-S/ng-youtube-embed-iframe.svg?branch=master)](https://travis-ci.com/Sibiraj-S/ng-youtube-embed-iframe)
+# ng-youtube-embed-iframe [![Build Status](https://travis-ci.com/sibiraj-s/ng-youtube-embed-iframe.svg?branch=master)](https://travis-ci.com/sibiraj-s/ng-youtube-embed-iframe)
 
 <p align="center">
-  <a href="https://github.com/Sibiraj-S/ng-youtube-embed-iframe">
-   <img src="https://raw.githubusercontent.com/Sibiraj-S/ng-youtube-embed-iframe/master/assets/images/youtube.png" alt="ng-youtube-embed-iframe" height="180">
+  <a href="https://github.com/sibiraj-s/ng-youtube-embed-iframe">
+   <img src="https://raw.githubusercontent.com/sibiraj-s/ng-youtube-embed-iframe/master/assets/images/youtube.png" alt="ng-youtube-embed-iframe" height="180">
   </a>
 </p>
 
@@ -74,6 +74,6 @@ $scope.options = {
 Refer [wiki][wiki] for documentation
 
 [ApiReference]:https://developers.google.com/youtube/iframe_api_reference
-[wiki]:https://github.com/Sibiraj-S/ng-youtube-embed-iframe/wiki
+[wiki]:https://github.com/sibiraj-s/ng-youtube-embed-iframe/wiki
 [npm]: https://www.npmjs.com/
 [yarn]: https://yarnpkg.com/lang/en/

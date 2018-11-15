@@ -5,6 +5,9 @@
   "author": "Sibiraj",
   "license": "MIT",
   "private": true,
+  "repository": "https://github.com/sibiraj-s/ng-youtube-embed-iframe.git",
+  "bugs": "https://github.com/sibiraj-s/ng-youtube-embed-iframe/issues",
+  "homepage": "https://github.com/sibiraj-s/ng-youtube-embed-iframe#readme",
   "scripts": {
     "build": "grunt build",
     "develop": "grunt develop",
@@ -27,14 +30,6 @@
     "youtube-iframe-api",
     "youtube-embed"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sibiraj-s/ng-youtube-embed-iframe.git"
-  },
-  "bugs": {
-    "url": "https://github.com/sibiraj-s/ng-youtube-embed-iframe/issues"
-  },
-  "homepage": "https://github.com/sibiraj-s/ng-youtube-embed-iframe#readme",
   "peerDependencies": {
     "angular": ">=1.6.6",
     "angular-sanitize": ">=1.6.6"

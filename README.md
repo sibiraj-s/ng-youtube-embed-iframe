@@ -29,13 +29,13 @@ or use cdn
 ##### Minified
 
 ```bash
-//unpkg.com/ng-youtube-embed-iframe@latest/ng-youtube.min.js
+//cdn.jsdelivr.net/npm/ng-youtube-embed-iframe@latest/ng-youtube.min.js
 ```
 
 ##### Pretty Printed
 
 ```bash
-//unpkg.com/ng-youtube-embed-iframe@latest/ng-youtube.js
+//cdn.jsdelivr.net/npm/ng-youtube-embed-iframe@latest/ng-youtube.js
 ```
 
 ### Usage

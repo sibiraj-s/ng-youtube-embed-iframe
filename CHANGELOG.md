@@ -12,6 +12,29 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v1.2.11 (2019-09-02)
+
+#### Enhancements
+
+- remove angular-sanitize from peerDependencies ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+
+#### Dependency Updates
+
+- update angular to v1.7.8 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update chalk to v2.4.2 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update eslint to v6.3.0 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update eslint-config-airbnb-base to v14.0.0 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update eslint-plugin-import to v2.18.2 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update grunt to v1.0.4 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update grunt-coffeelintr to v1.1.3 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update grunt-contrib-coffee to v2.1.0 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update grunt-contrib-uglify to v4.0.1 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update grunt-eslint to v22.0.0 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update grunt-sass to v3.1.0 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update husky to v3.0.5 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update load-grunt-tasks to v5.1.0 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+- update sass to v1.22.10 ([4bbee8a](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4bbee8a))
+
 ## v1.2.10 (2018-12-30)
 
 #### Enhancements

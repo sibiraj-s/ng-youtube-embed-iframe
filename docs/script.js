@@ -4,7 +4,7 @@ app.controller('mainCtrl', ['$scope', 'ytPlayer', ($scope, ytPlayer) => {
   $scope.playerReady = false;
   $scope.ytPlayer = undefined;
 
-  $scope.videoId = 'iGk5fR-t5AU';
+  $scope.videoId = 'pRpeEdMmmQ0';
 
   $scope.$on('ngYoutubePlayer:onPlayerReady', () => {
     $scope.ytPlayer = ytPlayer;

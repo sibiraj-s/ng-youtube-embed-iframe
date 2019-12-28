@@ -1,4 +1,4 @@
-# ng-youtube-embed-iframe [![Build Status](https://travis-ci.com/sibiraj-s/ng-youtube-embed-iframe.svg?branch=master)](https://travis-ci.com/sibiraj-s/ng-youtube-embed-iframe)
+# ng-youtube-embed-iframe [![Tests](https://github.com/sibiraj-s/ng-youtube-embed-iframe/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/ng-youtube-embed-iframe/actions)
 
 <p align="center">
   <a href="https://github.com/sibiraj-s/ng-youtube-embed-iframe">

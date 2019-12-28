@@ -1,6 +1,5 @@
-'use strict'
-
 dartSass = require('sass')
+loadGruntTasks = require('load-grunt-tasks')
 
 banner = '/*!\n * @module <%= pkg.name %>\n' +
   ' * @description <%= pkg.description %>\n' +
@@ -10,7 +9,7 @@ banner = '/*!\n * @module <%= pkg.name %>\n' +
   ' */\n\n';
 
 module.exports = (grunt) ->
-  require('load-grunt-tasks')(grunt)
+  loadGruntTasks(grunt)
 
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
@@ -76,39 +75,37 @@ module.exports = (grunt) ->
             delete pkg.engines
             JSON.stringify pkg, null, 2
 
-    connect:
-      server:
-        options:
-          base: './'
-          hostname: 'localhost'
-          open: true
-          keepalive: true,
-          livereload: true
+    browserSync:
+      bsFiles:
+        src: [
+          'docs/*.css',
+          'docs/**/*.html',
+          'docs/*.js',
+          'dist/*.js'
+          ]
+      options:
+        watchTask: true
+        open: false
+        server:
+          baseDir: 'docs'
+          routes:
+            '/dist': 'dist'
+        rewriteRules: [{
+          match: '//cdn.jsdelivr.net/npm/ng-youtube-embed-iframe@latest/ng-youtube.min.js',
+          replace: '/dist/ng-youtube.js',
+        }]
 
     watch:
       coffee:
         files: ['src/*.coffee']
         tasks: ['coffee']
-      js:
-        files: ['docs/*.js', 'dist/*.js']
-        options:
-          livereload: true
       sass:
         files: ['docs/*.scss']
         tasks: ['sass']
-      css:
-        files: ['docs/*.css'],
-        options:
-          livereload: true
-      html:
-        files: ['docs/*.html']
-        options:
-          livereload: true
 
   # Grunt task(s).
-  grunt.registerTask 'default', ['coffeelintr', 'coffee', 'sass']
-  grunt.registerTask 'serve', ['sass', 'connect']
-  grunt.registerTask 'develop', ['default', 'watch']
+  grunt.registerTask 'default', ['coffee']
+  grunt.registerTask 'serve', ['default', 'browserSync', 'watch']
   grunt.registerTask 'build', ['clean', 'default', 'concat', 'uglify', 'copy']
 
   return

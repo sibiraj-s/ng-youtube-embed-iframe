@@ -1,6 +1,6 @@
 const app = angular.module('myApp', ['ngYoutube']);
 
-app.controller('mainCtrl', ['$scope', 'ytPlayer', ($scope, ytPlayer) => {
+function mainCtrl($scope, ytPlayer) {
   $scope.playerReady = false;
   $scope.ytPlayer = undefined;
 
@@ -14,4 +14,7 @@ app.controller('mainCtrl', ['$scope', 'ytPlayer', ($scope, ytPlayer) => {
       $scope.$apply();
     }
   });
-}]);
+}
+
+mainCtrl.$inject = ['$scope', 'ytPlayer'];
+app.controller('mainCtrl', mainCtrl);

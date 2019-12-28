@@ -53,12 +53,28 @@ module.exports = (grunt) ->
         files:
           'dist/ng-youtube.min.js': ['dist/ng-youtube.js']
 
-    ngAnnotate:
-      options:
-        singleQuotes: true
-      annotateJS:
-        files:
-          'dist/ng-youtube.js': ['dist/ng-youtube.js']
+    clean:
+      outDir:
+        src: 'dist/'
+
+    copy:
+      default:
+        expand: true
+        src: ['LICENSE', 'README.md', 'CHANGELOG.md']
+        dest: 'dist/'
+      pkgJson:
+        expand: true
+        src: 'package.json'
+        dest: 'dist/',
+        options:
+          process: (data) ->
+            pkg = JSON.parse(data)
+            pkg.main = 'ng-youtube.min.js'
+            delete pkg.scripts
+            delete pkg.devDependencies
+            delete pkg.private
+            delete pkg.engines
+            JSON.stringify pkg, null, 2
 
     connect:
       server:
@@ -93,6 +109,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', ['coffeelintr', 'coffee', 'sass']
   grunt.registerTask 'serve', ['sass', 'connect']
   grunt.registerTask 'develop', ['default', 'watch']
-  grunt.registerTask 'build', ['default', 'ngAnnotate', 'concat', 'uglify']
+  grunt.registerTask 'build', ['clean', 'default', 'concat', 'uglify', 'copy']
 
   return

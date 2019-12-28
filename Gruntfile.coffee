@@ -20,9 +20,6 @@ module.exports = (grunt) ->
         configFile: 'coffeelint.json'
       source: ['src/ng-youtube.coffee', 'Gruntfile.coffee']
 
-    eslint:
-      target: ['docs/**/*.js', 'scripts/**/*.js']
-
     coffee:
       coffee2Js:
         options:
@@ -95,7 +92,6 @@ module.exports = (grunt) ->
   # Grunt task(s).
   grunt.registerTask 'default', ['coffeelintr', 'coffee', 'sass']
   grunt.registerTask 'serve', ['sass', 'connect']
-  grunt.registerTask 'lint', ['coffeelintr', 'eslint']
   grunt.registerTask 'develop', ['default', 'watch']
   grunt.registerTask 'build', ['default', 'ngAnnotate', 'concat', 'uglify']
 

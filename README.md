@@ -56,7 +56,7 @@ angular.module('myApp', ['ngYoutube']);
 and in your html
 
 ```html
-<youtube id="myYoutubePlayer"></youtube> // add in html
+<youtube id="myYoutubePlayer" video-id={{videoId}}></youtube>
 ```
 
 #### options

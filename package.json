@@ -33,9 +33,6 @@
     "youtube-iframe-api",
     "youtube-embed"
   ],
-  "peerDependencies": {
-    "angular": ">=1.7.0"
-  },
   "devDependencies": {
     "angular": "^1.7.9",
     "chalk": "^3.0.0",

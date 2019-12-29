@@ -1,4 +1,4 @@
-# ng-youtube-embed-iframe [![Tests](https://github.com/sibiraj-s/ng-youtube-embed-iframe/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/ng-youtube-embed-iframe/actions)
+# ng-youtube-embed-iframe [![Tests](https://github.com/sibiraj-s/ng-youtube-embed-iframe/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/ng-youtube-embed-iframe/actions) [![Jsdelivr](https://data.jsdelivr.com/v1/package/npm/ng-youtube-embed-iframe/badge?style=rounded)](https://www.jsdelivr.com/package/npm/ng-youtube-embed-iframe)
 
 <p align="center">
   <a href="https://github.com/sibiraj-s/ng-youtube-embed-iframe">
@@ -56,7 +56,7 @@ angular.module('myApp', ['ngYoutube']);
 and in your html
 
 ```html
-<youtube id="myYoutubePlayer" video-id={{videoId}}></youtube>
+<youtube id="myYoutubePlayer" video-id="{{videoId}}"></youtube>
 ```
 
 #### options

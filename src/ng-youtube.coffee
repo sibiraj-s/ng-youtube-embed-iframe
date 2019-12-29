@@ -5,7 +5,7 @@ $youtubePlayerConfig = ->
   height: '100%'
   playerVars: {}
 
-$youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig) ->
+$youtube = ($compile, $window, ytFactory, ytPlayer, youtubePlayerConfig) ->
   restrict: 'E'
   transclude: true
   template: '<div id={{ngYoutubeId}}></div>'
@@ -23,11 +23,12 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig) ->
     # load the Youtube IFrame Player API code asynchronously
     # load page only once
     ###
-
-    if typeof YT is 'undefined' or typeof YT.Player is 'undefined'
-      tag = document.createElement('script')
+    iframeScript = $window.document.getElementById('ng_yt_iframe_api')
+    if (typeof $window.YT is 'undefined' or typeof $window.YT.Player is 'undefined') and not iframeScript
+      tag = $window.document.createElement('script')
       tag.src = 'https://www.youtube.com/iframe_api'
-      firstScriptTag = document.getElementsByTagName('script')[0]
+      tag.id = 'ng_yt_iframe_api'
+      firstScriptTag = $window.document.getElementsByTagName('script')[0]
       firstScriptTag.parentNode.insertBefore tag, firstScriptTag
 
     ytFactory.onReady ->
@@ -40,7 +41,6 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig) ->
     # else if use parameters are defined in options
     # else use default parameters
     ###
-
     scope.ngYoutubeId = attrs.id
 
     scope.playerOptions = if scope.playerOptions then scope.playerOptions else {}
@@ -60,7 +60,6 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig) ->
       youtubePlayerConfig.playerVars
 
     # create iframe and append video url to it
-
     createPlayer = ->
       new YT.Player attrs.id,
         videoId: playerVideoId
@@ -76,7 +75,6 @@ $youtube = ($compile, ytFactory, ytPlayer, youtubePlayerConfig) ->
           onApiChange: onApiChange
 
     # events emit by youtube iframe api
-
     onPlayerReady = (event) ->
       scope.$emit 'ngYoutubePlayer:onPlayerReady', event, attrs.id
       return
@@ -163,7 +161,7 @@ $ytPlayer = {}
 ###
 # dependency injection
 ###
-$youtube.$inject = ['$compile', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig']
+$youtube.$inject = ['$compile', '$window', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig']
 $ytFactory.$inject = ['$q', '$window']
 
 ###

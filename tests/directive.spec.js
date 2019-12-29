@@ -1,22 +1,33 @@
 angular.module('app', ['ngYoutube']);
 
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 10 * 1000; // 10s
+
 describe('ngYoutube', () => {
   beforeEach(module('app'));
   let $compile;
   let $rootScope;
   let $window;
-  let ytPlayer;
 
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 10 * 1000;
+  let ytPlayer;
+  let youtubePlayerConfig;
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
     $compile = $injector.get('$compile');
     $window = $injector.get('$window');
+
     ytPlayer = $injector.get('ytPlayer');
+    youtubePlayerConfig = $injector.get('youtubePlayerConfig');
   }));
 
-  it('should render create the player', (done) => {
+  it('should have the correct default config', () => {
+    expect(youtubePlayerConfig).toBeInstanceOf(Object);
+    expect(youtubePlayerConfig.height).toEqual('100%');
+    expect(youtubePlayerConfig.width).toEqual('100%');
+    expect(youtubePlayerConfig.playerVars).toEqual({});
+  });
+
+  it('should create the player', (done) => {
     expect($window.YT).toBeFalsy();
     expect($window.onYouTubeIframeAPIReady).toBeFalsy();
 
@@ -33,9 +44,11 @@ describe('ngYoutube', () => {
     expect($window.onYouTubeIframeAPIReady).toBeInstanceOf(Function);
 
     const originalIframeReadyFn = $window.onYouTubeIframeAPIReady;
-    $window.onYouTubeIframeAPIReady = (...args) => {
-      originalIframeReadyFn.apply(null, ...args);
+    $window.onYouTubeIframeAPIReady = () => {
+      originalIframeReadyFn();
+
       $rootScope.$apply();
+
       expect($window.YT).toBeTruthy();
       expect(Object.keys(ytPlayer)).toContain('player');
       done();

@@ -1,6 +1,6 @@
 'use strict'
 
-$youtubePlayerConfig = ->
+$youtubePlayerConfig =
   width: '100%'
   height: '100%'
   playerVars: {}
@@ -169,6 +169,6 @@ $ytFactory.$inject = ['$q', '$window']
 ###
 angular.module 'ngYoutube', []
   .directive('youtube', $youtube)
-  .constant('youtubePlayerConfig', $youtubePlayerConfig)
   .factory('ytFactory', $ytFactory)
+  .constant('youtubePlayerConfig', $youtubePlayerConfig)
   .constant('ytPlayer', $ytPlayer)

@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 > **Tags**
+>
 > - Features
 > - Bug Fixes
 > - Performance Improvements
@@ -11,6 +12,31 @@ All notable changes to this project will be documented in this file.
 > - Breaking Changes
 > - Documentation
 > - Internal
+
+## v1.2.12 (2019-12-30)
+
+#### Bug Fixes
+
+- prevent duplicate injection of iframe api script ([233d3d3](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/233d3d3))
+- set default player config correctly ([e9cf68e](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/e9cf68e))
+- throw error if video-id is not set ([8f798d9](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/8f798d9))
+
+#### Enhancements
+
+- compile files with babel ([3efe5cd](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/3efe5cd))
+
+#### Dependency Updates
+
+- bump devDependencies ([2b55b90](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/2b55b90))
+
+#### Internal
+
+- add karma-jasmine unit tests ([9c0d9b3](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/9c0d9b3))
+- migrate to github actions from travis-ci ([0f97e0d](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/0f97e0d))
+- use browser-sync for development ([1997e95](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/1997e95))
+- cleanup build tasks ([0e1d469](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/0e1d469))
+- use eslint instead of grunt-eslint ([aa1fcb8](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/aa1fcb8))
+- remove peerDependencies ([8b35ba5](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/8b35ba5))
 
 ## v1.2.11 (2019-09-02)
 
@@ -155,7 +181,7 @@ Just a Maintenance Release.
 
 #### Dependency Updates
 
-- remove ng-sanitize as  dependency ([4a9047d](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4a9047d))
+- remove ng-sanitize as dependency ([4a9047d](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/4a9047d))
 
 #### Bug Fixes
 
@@ -169,8 +195,8 @@ Just a Maintenance Release.
 
 #### Performance Improvements
 
-- modular approach method to avoid unwanted errors  ([fea7a0b](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/fea7a0b))
-- compatible with strict-di mode  ([fea7a0b](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/fea7a0b))
+- modular approach method to avoid unwanted errors ([fea7a0b](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/fea7a0b))
+- compatible with strict-di mode ([fea7a0b](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/fea7a0b))
 
 ## v1.1.1 (2017-07-04)
 

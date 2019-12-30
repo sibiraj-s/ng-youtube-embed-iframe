@@ -59,9 +59,9 @@ and in your html
 <youtube id="myYoutubePlayer" video-id="{{videoId}}"></youtube>
 ```
 
-#### options
+### Options
 
-Options like `video-id, height, width` can be directly provided in the element which is considered as the main priority.
+Options like `video-id, height, width` provided as element attribute has higher priority.
 
 Other options can be provided in `player-options`
 

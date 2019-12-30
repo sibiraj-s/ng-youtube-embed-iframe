@@ -11,7 +11,7 @@ describe('ngYoutube', () => {
   let ytPlayer;
   let youtubePlayerConfig;
 
-  const youtubeVideoId = 'pRpeEdMmmQ0';
+  const youtubeVideoId = '6ZfuNTqbHE8';
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');

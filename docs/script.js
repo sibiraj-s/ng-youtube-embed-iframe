@@ -4,7 +4,7 @@ function mainCtrl($scope, ytPlayer) {
   $scope.playerReady = false;
   $scope.ytPlayer = undefined;
 
-  $scope.videoId = 'pRpeEdMmmQ0';
+  $scope.videoId = '6ZfuNTqbHE8';
 
   $scope.$on('ngYoutubePlayer:onPlayerReady', () => {
     $scope.ytPlayer = ytPlayer;

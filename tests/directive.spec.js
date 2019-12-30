@@ -11,6 +11,8 @@ describe('ngYoutube', () => {
   let ytPlayer;
   let youtubePlayerConfig;
 
+  const youtubeVideoId = 'pRpeEdMmmQ0';
+
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
     $compile = $injector.get('$compile');
@@ -30,8 +32,6 @@ describe('ngYoutube', () => {
   it('should create the player', (done) => {
     expect($window.YT).toBeFalsy();
     expect($window.onYouTubeIframeAPIReady).toBeFalsy();
-
-    const youtubeVideoId = 'pRpeEdMmmQ0';
 
     $rootScope.videoId = youtubeVideoId;
     const template = '<youtube video-id={{videoId}} id="player"></youtube>';
@@ -53,5 +53,22 @@ describe('ngYoutube', () => {
       expect(Object.keys(ytPlayer)).toContain('player');
       done();
     };
+  });
+
+  it('should throw error if video-id is not provided', () => {
+    const template = '<youtube id="player"></youtube>';
+
+    expect(() => {
+      $compile(template)($rootScope);
+    }).toThrowError(Error);
+  });
+
+  it('should throw error if element id attribute is not provided', () => {
+    $rootScope.videoId = youtubeVideoId;
+    const template = '<youtube video-id={{videoId}}></youtube>';
+
+    expect(() => {
+      $compile(template)($rootScope);
+    }).toThrowError(Error);
   });
 });

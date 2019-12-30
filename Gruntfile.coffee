@@ -26,6 +26,14 @@ module.exports = (grunt) ->
         files:
           'dist/ng-youtube.js': ['src/ng-youtube.coffee']
 
+    babel:
+      options:
+        sourceMap: true
+        presets: ['@babel/preset-env']
+      compile:
+        files:
+          'dist/ng-youtube.js': 'dist/ng-youtube.js'
+
     sass:
       options:
         implementation: dartSass
@@ -104,7 +112,7 @@ module.exports = (grunt) ->
         tasks: ['sass']
 
   # Grunt task(s).
-  grunt.registerTask 'default', ['coffee']
+  grunt.registerTask 'default', ['coffee', 'babel']
   grunt.registerTask 'serve', ['default', 'browserSync', 'watch']
   grunt.registerTask 'build', ['clean', 'default', 'concat', 'uglify', 'copy']
 

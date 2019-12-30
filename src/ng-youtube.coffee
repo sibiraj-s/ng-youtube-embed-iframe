@@ -5,7 +5,7 @@ $youtubePlayerConfig =
   height: '100%'
   playerVars: {}
 
-$youtube = ($compile, $window, ytFactory, ytPlayer, youtubePlayerConfig) ->
+$youtube = ($window, ytFactory, ytPlayer, youtubePlayerConfig) ->
   restrict: 'E'
   transclude: true
   template: '<div id={{ngYoutubeId}}></div>'
@@ -17,23 +17,19 @@ $youtube = ($compile, $window, ytFactory, ytPlayer, youtubePlayerConfig) ->
   link: (scope, element, attrs) ->
 
     if not attrs.id
-      throw new Error 'Provide id for element: ' + element[0].outerHTML
+      throw new Error "Provide id for element: #{element[0].outerHTML}"
 
     ###
     # load the Youtube IFrame Player API code asynchronously
     # load page only once
     ###
-    iframeScript = $window.document.getElementById('ng_yt_iframe_api')
-    if (typeof $window.YT is 'undefined' or typeof $window.YT.Player is 'undefined') and not iframeScript
+    iframeApiScriptExists = !!$window.document.getElementById('ng_yt_iframe_api')
+    if (typeof $window.YT is 'undefined' or typeof $window.YT.Player is 'undefined') and not iframeApiScriptExists
       tag = $window.document.createElement('script')
       tag.src = 'https://www.youtube.com/iframe_api'
       tag.id = 'ng_yt_iframe_api'
       firstScriptTag = $window.document.getElementsByTagName('script')[0]
       firstScriptTag.parentNode.insertBefore tag, firstScriptTag
-
-    ytFactory.onReady ->
-      ytPlayer[attrs.id] = createPlayer()
-      return
 
     ###
     # check for parameters assigned to the element
@@ -45,19 +41,17 @@ $youtube = ($compile, $window, ytFactory, ytPlayer, youtubePlayerConfig) ->
 
     scope.playerOptions = if scope.playerOptions then scope.playerOptions else {}
 
-    playerVideoId = if scope.videoId then scope.videoId else
-      scope.playerOptions.videoId
+    playerVideoId = scope.videoId or scope.playerOptions.videoId
+    playerHeight = scope.height or scope.playerOptions.height or youtubePlayerConfig.height
+    playerWidth = scope.width or scope.playerOptions.width or youtubePlayerConfig.width
+    playerVars = scope.playerOptions.playerVars or youtubePlayerConfig.playerVars
 
-    playerHeight = if scope.height then scope.height else
-      (tempHeight = if scope.playerOptions.height then scope.playerOptions.height else
-        youtubePlayerConfig.height)
+    if not playerVideoId
+      throw new Error "Video id is required. Received `#{playerVideoId}`"
 
-    playerWidth = if scope.width then scope.width else
-      (tempWidth = if scope.playerOptions.width then scope.playerOptions.width else
-        youtubePlayerConfig.width)
-
-    playerVars = if scope.playerOptions.playerVars then scope.playerOptions.playerVars else
-      youtubePlayerConfig.playerVars
+    ytFactory.onReady ->
+      ytPlayer[attrs.id] = createPlayer()
+      return
 
     # create iframe and append video url to it
     createPlayer = ->
@@ -161,7 +155,7 @@ $ytPlayer = {}
 ###
 # dependency injection
 ###
-$youtube.$inject = ['$compile', '$window', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig']
+$youtube.$inject = ['$window', 'ytFactory', 'ytPlayer', 'youtubePlayerConfig']
 $ytFactory.$inject = ['$q', '$window']
 
 ###

@@ -7,7 +7,6 @@ $youtubePlayerConfig =
 
 $youtube = ($window, ytFactory, ytPlayer, youtubePlayerConfig) ->
   restrict: 'E'
-  transclude: true
   template: '<div id={{ngYoutubeId}}></div>'
   scope:
     height: '@'

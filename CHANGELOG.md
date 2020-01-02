@@ -13,6 +13,16 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v1.2.13 (2020-01-03)
+
+#### Enhancements
+
+- remove unused directive transclude option ([2a84804](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/2a84804))
+
+#### Internal
+
+- update LICENSE ([71a958d](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/71a958d))
+
 ## v1.2.12 (2019-12-30)
 
 #### Bug Fixes

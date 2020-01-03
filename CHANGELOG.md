@@ -13,6 +13,10 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v1.2.14 (2020-01-03)
+
+- make scope parameters optional ([712aab0](https://github.com/sibiraj-s/ng-youtube-embed-iframe/commit/712aab0))
+
 ## v1.2.13 (2020-01-03)
 
 #### Enhancements

@@ -9,9 +9,9 @@ $youtube = ($window, ytFactory, ytPlayer, youtubePlayerConfig) ->
   restrict: 'E'
   template: '<div id={{ngYoutubeId}}></div>'
   scope:
-    height: '@'
-    width: '@'
-    videoId: '@'
+    height: '@?'
+    width: '@?'
+    videoId: '@?'
     playerOptions: '=?'
   link: (scope, element, attrs) ->
 

@@ -99,7 +99,7 @@ module.exports = (grunt) ->
           routes:
             '/dist': 'dist'
         rewriteRules: [{
-          match: '//cdn.jsdelivr.net/npm/ng-youtube-embed-iframe@latest/ng-youtube.min.js',
+          match: 'https://cdn.jsdelivr.net/npm/ng-youtube-embed-iframe@latest/ng-youtube.min.js',
           replace: '/dist/ng-youtube.js',
         }]
 

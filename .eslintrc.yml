@@ -1,12 +1,11 @@
 extends:
-  - airbnb-base
   - pegasus
+  - pegasus/node
 
 plugins:
   - angular
 
 rules:
-  import/no-extraneous-dependencies: off
   no-console: off
 
 globals:

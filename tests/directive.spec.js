@@ -1,6 +1,7 @@
 angular.module('app', ['ngYoutube']);
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 10 * 1000; // 10s
+// 10secs
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 10 * 1000;
 
 describe('ngYoutube', () => {
   beforeEach(module('app'));

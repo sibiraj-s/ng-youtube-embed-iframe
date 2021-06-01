@@ -9,7 +9,7 @@
   "bugs": "https://github.com/sibiraj-s/ng-youtube-embed-iframe/issues",
   "homepage": "https://github.com/sibiraj-s/ng-youtube-embed-iframe#readme",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
     "build": "grunt build",
